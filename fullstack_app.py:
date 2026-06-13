@@ -1,0 +1,69 @@
+import hashlib
+import json
+
+class FullStackNGOApp:
+    def __init__(self):
+        # 🗄️ Relational Database Simulation (Tables)
+        self.users_database = []  # Volunteer Registration Table
+        # Admin Credentials Store (Hashed Password for Security)
+        self.admin_username = "admin_nayepankh"
+        self.admin_password_hash = hashlib.sha256("pankh2026".encode()).encode().hex()
+        
+        # Pehle se kuch data insert kar dete hain (Seed Data)
+        self.users_database.append({"id": 1, "name": "Riya Sharma", "email": "riya@gmail.com", "role": "Teaching"})
+        self.users_database.append({"id": 2, "name": "Karan Malhotra", "email": "karan@gmail.com", "role": "Food Drive"})
+
+    # 🌐 API Route / Method: Volunteer Registration (Create/Post Action)
+    def register_volunteer(self, name, email, role):
+        new_id = len(self.users_database) + 1
+        new_user = {
+            "id": new_id,
+            "name": name,
+            "email": email,
+            "role": role
+        }
+        self.users_database.append(new_user)
+        return f"HTTP 201 CREATED: Volunteer {name} successfully registered in Database Table!"
+
+    # 🔐 Authentication Module: Admin Login Verified
+    def admin_login(self, username, password):
+        input_hash = hashlib.sha256(password.encode()).encode().hex()
+        if username == self.admin_username and input_hash == self.admin_password_hash:
+            return True
+        return False
+
+    # 📊 Admin Dashboard Module: Secure Database Report Generation (Read Action)
+    def generate_admin_report(self, is_authenticated):
+        if not is_authenticated:
+            return "HTTP 401 UNAUTHORIZED: Access Denied. Admin Login Required."
+        
+        print("\n========================================================")
+        print("🖥️ NAYEPANKH FOUNDATION - FULL STACK ADMIN DASHBOARD")
+        print("========================================================")
+        print(f"Connected Database: SQLite3_Mock | Total Rows: {len(self.users_database)}")
+        print("--------------------------------------------------------")
+        print(f"{'ID':<5} | {'Volunteer Name':<18} | {'Email Address':<18} | {'Assigned Domain'}")
+        print("--------------------------------------------------------")
+        for user in self.users_database:
+            print(f"{user['id']:<5} | {user['name']:<18} | {user['email']:<18} | {user['role']}")
+        print("--------------------------------------------------------")
+        return "HTTP 200 OK: Data Payload Rendered Successfully."
+
+# Operational Simulation Loop
+if __name__ == "__main__":
+    app = FullStackNGOApp()
+    
+    print("--- 🌐 Full Stack App: Public Front-end Form Submit ---")
+    # Front-end se database mein naya user add hona
+    print(app.register_volunteer("Sneha Patil", "sneha@gmail.com", "Healthcare Assist"))
+    
+    print("\n--- 🔐 Full Stack App: Secure Admin Dashboard Panel Login ---")
+    username_input = input("Enter Admin Username: ")
+    password_input = input("Enter Admin Password: ")
+    
+    # Check Credentials
+    is_authed = app.admin_login(username_input, password_input)
+    
+    # Fetch Data onto Dashboard Panel
+    status = app.generate_admin_report(is_authed)
+    print(status)
