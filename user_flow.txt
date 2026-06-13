@@ -1,0 +1,28 @@
+========================================================================
+🗺️ NAYEPANKH FOUNDATION - USER FLOW MAP (DONATION & VOLUNTEERING)
+========================================================================
+
+[ FLOW 1: DONATION USER JOURNEY ]
+User lands on Homepage 
+  │
+  ├──► Sees Hero Banner & Impact Stats (Builds Trust)
+  │
+  ├──► Clicks on [DONATE NOW] Button in Header or CTA Section
+  │
+  ├──► Opens Popup / Secure Donation Page
+  │
+  ├──► Selects Amount (₹500, ₹1000, Custom) & Payment Method (UPI, QR, Card)
+  │
+  └──► Success Screen: "🎉 Thank you for Giving Wings to Dreams!" + Auto Receipt Sent.
+
+
+[ FLOW 2: VOLUNTEER REGISTRATION JOURNEY ]
+User wants to join the cause
+  │
+  ├──► Navigates to 'Volunteers' section or clicks [Join As Volunteer]
+  │
+  ├──► Redirects to a Simple Registration Form (Python Backend Integrated)
+  │
+  ├──► User enters: Name, Contact, Email, Skillset
+  │
+  └──► Success Screen: "🤝 Welcome to the Family! Our Team will contact you soon."
