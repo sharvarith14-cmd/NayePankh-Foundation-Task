@@ -1,0 +1,12 @@
+=== NayePankh Foundation AI Chatbot Output Simulation ===
+
+[AI]: Namaste! 🙏 Welcome to NayePankh Foundation. I am your AI Assistant. How can I help you today? (Type: 'donate', 'volunteer', or 'mission')
+
+[User]: how can I donate?
+[AI]: 💰 Thank you for your kindness! You can donate easily via UPI, Net Banking, or Cards on our official portal. Your contribution supports food and education for the underprivileged.
+
+[User]: I want to volunteer
+[AI]: 🤝 We love welcoming new changemakers! You can register as a volunteer by filling out our online form or checking our Python Volunteer Registration System.
+
+[User]: tell me about your mission
+[AI]: 🌟 NayePankh Foundation is one of the leading NGOs working towards providing education, healthcare, and basic essentials to needy children and families.
