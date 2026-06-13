@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NayePankh Foundation - AI Support</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f7f6;
+            color: #333;
+        }
+        header {
+            background: linear-gradient(135deg, #ff9933, #ffffff, #138808);
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        header h1 {
+            margin: 0;
+            color: #222;
+            font-size: 2.5em;
+        }
+        header p {
+            margin: 5px 0 0;
+            color: #555;
+            font-weight: bold;
+        }
+        .container {
+            max-width: 800px;
+            margin: 30px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+        .chat-box {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            height: 350px;
+            overflow-y: auto;
+            padding: 15px;
+            background-color: #fafafa;
+            margin-bottom: 15px;
+        }
+        .message {
+            margin: 10px 0;
+            padding: 10px 14px;
+            border-radius: 8px;
+            max-width: 75%;
+            line-height: 1.4;
+        }
+        .user-msg {
+            background-color: #007bff;
+            color: white;
+            margin-left: auto;
+            text-align: right;
+        }
+        .ai-msg {
+            background-color: #e9ecef;
+            color: #333;
+        }
+        .input-area {
+            display: flex;
+            gap: 10px;
+        }
+        input[type="text"] {
+            flex: 1;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            outline: none;
+            font-size: 16px;
+        }
+        button {
+            padding: 12px 24px;
+            background-color: #ff9933;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 16px;
+            transition: 0.2s;
+        }
+        button:hover {
+            background-color: #e68a00;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>NayePankh Foundation</h1>
+    <p>It stands for 'Giving Wings to Dreams' | AI Web Assistant</p>
+</header>
+
+<div class="container">
+    <h2>🤖 AI-Powered Support Assistant</h2>
+    <p>Ask our AI assistant about donations, volunteering, or our NGO's mission!</p>
+    
+    <div class="chat-box" id="chatBox">
+        <div class="message ai-msg">Namaste! 🙏 Welcome to NayePankh Foundation. I am your AI Assistant. How can I help you today? (Type: 'donate', 'volunteer', or 'mission')</div>
+    </div>
+
+    <div class="input-area">
+        <input type="text" id="userInput" placeholder="Ask something here..." onkeypress="handleKeyPress(event)">
+        <button onclick="sendMessage()">Send</button>
+    </div>
+</div>
+
+<script>
+    function handleKeyPress(event) {
+        if (event.key === 'Enter') {
+            sendMessage();
+        }
+    }
+
+    function sendMessage() {
+        let inputField = document.getElementById("userInput");
+        let userText = inputField.value.trim();
+        if (userText === "") return;
+
+        // User message append karein
+        appendMessage(userText, "user-msg");
+        inputField.value = "";
+
+        // AI Response simulate karein thode delay ke baad
+        setTimeout(() => {
+            let aiResponse = getAIResponse(userText.toLowerCase());
+            appendMessage(aiResponse, "ai-msg");
+        }, 600);
+    }
+
+    function appendMessage(text, className) {
+        let chatBox = document.getElementById("chatBox");
+        let msgDiv = document.createElement("div");
+        msgDiv.className = "message " + className;
+        msgDiv.innerText = text;
+        chatBox.appendChild(msgDiv);
+        chatBox.scrollTop = chatBox.scrollHeight;
+    }
+
+    function getAIResponse(query) {
+        if (query.includes("donate") || query.includes("donation") || query.includes("paisa")) {
+            return "💰 Thank you for your kindness! You can donate easily via UPI, Net Banking, or Cards on our official portal. Your contribution supports food and education for the underprivileged.";
+        } else if (query.includes("volunteer") || query.includes("join")) {
+            return "🤝 We love welcoming new changemakers! You can register as a volunteer by filling out our online form or checking our Python Volunteer Registration System.";
+        } else if (query.includes("mission") || query.includes("about") || query.includes("work")) {
+            return "🌟 NayePankh Foundation is one of the leading NGOs working towards providing education, healthcare, and basic essentials to needy children and families.";
+        } else {
+            return "🤖 I am constantly learning! For specific queries, please type 'donate' to help us, 'volunteer' to join us, or visit our main website.";
+        }
+    }
+</script>
+
+</body>
+</html>
