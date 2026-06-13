@@ -1,0 +1,28 @@
+==================================================
+     NayePankh Foundation
+  Volunteer Management System
+==================================================
+
+--- MAIN MENU ---
+1. Register New Volunteer
+2. View All Volunteers
+3. Search Volunteer
+4. Generate Report
+5. Delete Volunteer
+6. Exit
+------------------------------
+Enter your choice (1-6): 1
+
+--- REGISTER NEW VOLUNTEER ---
+
+Full Name       : Sharvari Yogeshsingh Thakur
+Age             : 20
+City            : Pune
+Email           : sharvarith14@gmail.com
+Phone Number    : 9960730102
+Skills (Teaching/Design/Coding etc): Python,java,c,c++,canva,digital marketing,full stack development,sql,data structureAvailability (Weekdays/Weekends/Both): Both
+
+Volunteer registered successfully!
+Volunteer ID: NP-001
+
+Press Enter to continue...
