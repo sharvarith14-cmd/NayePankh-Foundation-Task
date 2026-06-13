@@ -1,0 +1,33 @@
+=== NayePankh Foundation - Java Resource Tracker ===
+1. Add New Donation
+2. Search Donor Details
+3. Generate Total Donation Report
+4. Exit
+Enter your choice: 1
+Enter Donor Name: Sharvari Thakur 
+Enter Donation Amount (INR): 3000
+🎉 Donation recorded successfully for Sharvari Thakur!
+
+=== NayePankh Foundation - Java Resource Tracker ===
+1. Add New Donation
+2. Search Donor Details
+3. Generate Total Donation Report
+4. Exit
+Enter your choice: 2
+Enter Donor Name to Search: Rahul Kumar
+🔍 Found: Rahul Kumar donated ₹3000.0
+
+=== NayePankh Foundation - Java Resource Tracker ===
+1. Add New Donation
+2. Search Donor Details
+3. Generate Total Donation Report
+4. Exit
+Enter your choice: 3
+
+--- 📋 NGO DONATION REPORT ---
+- Amit Sharma: ₹5000.0
+- Priya Patel: ₹2500.0
+- Rohan Das: ₹1500.0
+- Rahul Kumar: ₹3000.0
+-----------------------------
+💰 Total Funds Collected: ₹12000.0
