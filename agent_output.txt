@@ -1,0 +1,27 @@
+=== NayePankh AI Agent Workflow Simulation ===
+
+[Pankh-Bot 1.0]: Hello! I am an automated AI Agent for NayePankh Foundation.
+[Pankh-Bot 1.0]: May I know your name first? 
+>> User: Sharvari
+[Pankh-Bot 1.0]: Welcome Sharvari! How can NayePankh AI Agent assist you today?
+
+>> Sharvari: I want to donate to your NGO
+
+[AI Agent Thinking...] Analyzing intent and accessing memory...
+🤖 [Workflow Triggered: Finance Automation System]
+-> Generating secure payment link...
+-> Action: Notification sent to Finance Team.
+-> Response: 'Sharvari, thank you! Your intent has been logged for donation tracking.'
+
+>> Sharvari: show my history
+
+[AI Agent Thinking...] Analyzing intent and accessing memory...
+🧠 [Agent Memory Access]
+-> User Identified: Sharvari
+-> Past Queries Remembered: [I want to donate to your NGO]
+-> Status: Memory Active & Tracking Context.
+
+>> Sharvari: bye
+
+[AI Agent Thinking...] Analyzing intent and accessing memory...
+[Pankh-Bot 1.0]: Goodbye Sharvari! Memory cleared. Have a great day!
