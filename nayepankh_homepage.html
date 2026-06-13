@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>NayePankh Foundation</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --green-deep:   #1B5E20;
+      --green-mid:    #2E7D32;
+      --green-light:  #A5D6A7;
+      --green-pale:   #E8F5E9;
+      --orange:       #E65100;
+      --orange-light: #FF8F00;
+      --cream:        #FAFAF7;
+      --ink:          #1A1A1A;
+      --muted:        #5A6472;
+      --white:        #FFFFFF;
+    }
+
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; background: var(--cream); color: var(--ink); }
+
+    /* ── NAVBAR ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 6%; height: 68px;
+      background: var(--green-deep);
+      box-shadow: 0 2px 12px rgba(0,0,0,0.18);
+    }
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem; font-weight: 900;
+      color: var(--white); letter-spacing: 0.5px;
+    }
+    .nav-logo span { color: var(--orange-light); }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a {
+      color: var(--green-light); text-decoration: none;
+      font-size: 0.9rem; font-weight: 500; letter-spacing: 0.3px;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--white); }
+    .nav-btn {
+      background: var(--orange); color: var(--white);
+      border: none; padding: 9px 22px; border-radius: 6px;
+      font-size: 0.88rem; font-weight: 600; cursor: pointer;
+      transition: background 0.2s;
+    }
+    .nav-btn:hover { background: var(--orange-light); }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      background: linear-gradient(135deg, var(--green-deep) 0%, #2E7D32 55%, #388E3C 100%);
+      display: flex; align-items: center;
+      padding: 100px 6% 60px;
+      position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; top: -80px; right: -80px;
+      width: 520px; height: 520px; border-radius: 50%;
+      background: rgba(255,255,255,0.04);
+    }
+    .hero::after {
+      content: '';
+      position: absolute; bottom: -120px; left: -60px;
+      width: 400px; height: 400px; border-radius: 50%;
+      background: rgba(255,143,0,0.08);
+    }
+    .hero-content { max-width: 620px; position: relative; z-index: 1; }
+    .hero-tag {
+      display: inline-block;
+      background: rgba(255,143,0,0.18);
+      color: var(--orange-light);
+      font-size: 0.78rem; font-weight: 600;
+      letter-spacing: 1.5px; text-transform: uppercase;
+      padding: 6px 16px; border-radius: 20px;
+      margin-bottom: 1.4rem;
+    }
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.4rem, 5vw, 3.8rem);
+      font-weight: 900; line-height: 1.1;
+      color: var(--white); margin-bottom: 1.2rem;
+    }
+    .hero h1 em {
+      font-style: normal; color: var(--orange-light);
+    }
+    .hero p {
+      font-size: 1.05rem; color: rgba(255,255,255,0.82);
+      line-height: 1.7; margin-bottom: 2rem; max-width: 480px;
+    }
+    .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn-primary {
+      background: var(--orange); color: var(--white);
+      padding: 13px 30px; border-radius: 8px;
+      font-weight: 700; font-size: 0.95rem;
+      text-decoration: none; border: none; cursor: pointer;
+      transition: transform 0.18s, background 0.2s;
+      box-shadow: 0 4px 16px rgba(230,81,0,0.35);
+    }
+    .btn-primary:hover { background: var(--orange-light); transform: translateY(-2px); }
+    .btn-outline {
+      background: transparent; color: var(--white);
+      padding: 13px 30px; border-radius: 8px;
+      font-weight: 600; font-size: 0.95rem;
+      text-decoration: none; border: 2px solid rgba(255,255,255,0.45);
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .btn-outline:hover { border-color: var(--white); background: rgba(255,255,255,0.08); }
+
+    /* ── IMPACT STRIP ── */
+    .impact-strip {
+      background: var(--white);
+      padding: 48px 6%;
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 1px; border-bottom: 3px solid var(--green-pale);
+    }
+    .impact-item {
+      text-align: center; padding: 20px 10px;
+      border-right: 1px solid #E0E0E0;
+    }
+    .impact-item:last-child { border-right: none; }
+    .impact-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.6rem; font-weight: 900;
+      color: var(--green-mid); line-height: 1;
+    }
+    .impact-number span { color: var(--orange); }
+    .impact-label {
+      font-size: 0.82rem; color: var(--muted);
+      font-weight: 500; margin-top: 6px; letter-spacing: 0.3px;
+    }
+
+    /* ── SECTION BASE ── */
+    section { padding: 80px 6%; }
+    .section-tag {
+      font-size: 0.75rem; font-weight: 700;
+      letter-spacing: 2px; text-transform: uppercase;
+      color: var(--orange); margin-bottom: 0.6rem;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+      font-weight: 900; color: var(--ink); line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+    .section-sub {
+      font-size: 1rem; color: var(--muted);
+      line-height: 1.7; max-width: 520px;
+    }
+
+    /* ── ABOUT ── */
+    .about { background: var(--green-pale); }
+    .about-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 60px; align-items: center; margin-top: 50px;
+    }
+    .about-visual {
+      background: var(--green-mid);
+      border-radius: 16px; padding: 48px 36px;
+      text-align: center; color: var(--white);
+      position: relative; overflow: hidden;
+    }
+    .about-visual::before {
+      content: '🌱';
+      font-size: 7rem; opacity: 0.12;
+      position: absolute; top: -10px; right: -10px;
+    }
+    .about-visual-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem; font-weight: 900; margin-bottom: 0.8rem;
+    }
+    .about-visual p { font-size: 0.95rem; opacity: 0.85; line-height: 1.7; }
+    .about-points { margin-top: 28px; display: flex; flex-direction: column; gap: 18px; }
+    .about-point {
+      display: flex; gap: 14px; align-items: flex-start;
+    }
+    .about-point-icon {
+      width: 40px; height: 40px; border-radius: 10px;
+      background: var(--green-mid); color: var(--white);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem; flex-shrink: 0;
+    }
+    .about-point-text h4 {
+      font-weight: 700; font-size: 0.95rem; margin-bottom: 3px;
+    }
+    .about-point-text p { font-size: 0.88rem; color: var(--muted); line-height: 1.5; }
+
+    /* ── PROGRAMS ── */
+    .programs { background: var(--cream); }
+    .programs-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 24px; margin-top: 50px;
+    }
+    .program-card {
+      background: var(--white); border-radius: 14px;
+      padding: 32px 28px;
+      border: 1px solid #E8E8E8;
+      transition: transform 0.22s, box-shadow 0.22s;
+    }
+    .program-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 32px rgba(46,125,50,0.12);
+    }
+    .card-icon {
+      font-size: 2rem; margin-bottom: 16px;
+      width: 56px; height: 56px;
+      background: var(--green-pale); border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .program-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem; font-weight: 700;
+      margin-bottom: 10px; color: var(--ink);
+    }
+    .program-card p {
+      font-size: 0.88rem; color: var(--muted); line-height: 1.65;
+    }
+    .card-link {
+      display: inline-block; margin-top: 18px;
+      font-size: 0.85rem; font-weight: 600;
+      color: var(--green-mid); text-decoration: none;
+    }
+    .card-link:hover { color: var(--orange); }
+
+    /* ── VOLUNTEER CTA ── */
+    .cta {
+      background: linear-gradient(135deg, var(--green-deep), #1B5E20);
+      text-align: center; padding: 90px 6%;
+    }
+    .cta .section-title { color: var(--white); }
+    .cta .section-sub { color: rgba(255,255,255,0.78); margin: 0 auto 2.2rem; }
+    .cta-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+    /* ── TESTIMONIAL ── */
+    .testimonials { background: var(--white); }
+    .testimonials-grid {
+      display: grid; grid-template-columns: repeat(3,1fr);
+      gap: 24px; margin-top: 50px;
+    }
+    .tcard {
+      background: var(--green-pale); border-radius: 14px; padding: 28px 24px;
+    }
+    .tcard-quote {
+      font-size: 0.93rem; color: var(--ink);
+      line-height: 1.7; margin-bottom: 20px;
+      font-style: italic;
+    }
+    .tcard-author { display: flex; align-items: center; gap: 12px; }
+    .tcard-avatar {
+      width: 42px; height: 42px; border-radius: 50%;
+      background: var(--green-mid);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--white); font-weight: 700; font-size: 1rem;
+    }
+    .tcard-name { font-weight: 700; font-size: 0.9rem; }
+    .tcard-role { font-size: 0.78rem; color: var(--muted); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--ink); color: rgba(255,255,255,0.75);
+      padding: 60px 6% 30px;
+    }
+    .footer-grid {
+      display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 40px; margin-bottom: 40px;
+    }
+    .footer-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem; font-weight: 900;
+      color: var(--white); margin-bottom: 12px;
+    }
+    .footer-logo span { color: var(--orange-light); }
+    .footer-desc { font-size: 0.88rem; line-height: 1.7; }
+    .footer-col h4 {
+      color: var(--white); font-size: 0.88rem;
+      font-weight: 700; letter-spacing: 0.5px;
+      margin-bottom: 14px; text-transform: uppercase;
+    }
+    .footer-col ul { list-style: none; }
+    .footer-col ul li { margin-bottom: 9px; }
+    .footer-col ul li a {
+      color: rgba(255,255,255,0.6); text-decoration: none;
+      font-size: 0.87rem; transition: color 0.2s;
+    }
+    .footer-col ul li a:hover { color: var(--white); }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: 22px;
+      display: flex; justify-content: space-between; align-items: center;
+      font-size: 0.82rem; color: rgba(255,255,255,0.4);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .impact-strip { grid-template-columns: repeat(2, 1fr); }
+      .about-grid, .programs-grid, .testimonials-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .nav-links { display: none; }
+    }
+    @media (max-width: 540px) {
+      .impact-strip { grid-template-columns: repeat(2, 1fr); }
+      .footer-grid { grid-template-columns: 1fr; }
+      .impact-item { border-right: none; border-bottom: 1px solid #E0E0E0; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav>
+  <div class="nav-logo">Naye<span>Pankh</span> Foundation</div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#programs">Programs</a></li>
+    <li><a href="#volunteer">Volunteer</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <button class="nav-btn">Donate Now</button>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-tag">🌱 Empowering Youth Since 2020</div>
+    <h1>Give Wings To <em>Every Dream</em></h1>
+    <p>NayePankh Foundation connects passionate volunteers with students who need guidance, mentorship, and opportunities to grow — across every corner of India.</p>
+    <div class="hero-btns">
+      <a href="#volunteer" class="btn-primary">Volunteer Now</a>
+      <a href="#programs" class="btn-outline">Our Programs</a>
+    </div>
+  </div>
+</section>
+
+<!-- IMPACT NUMBERS -->
+<div class="impact-strip">
+  <div class="impact-item">
+    <div class="impact-number">5000<span>+</span></div>
+    <div class="impact-label">Students Supported</div>
+  </div>
+  <div class="impact-item">
+    <div class="impact-number">1200<span>+</span></div>
+    <div class="impact-label">Active Volunteers</div>
+  </div>
+  <div class="impact-item">
+    <div class="impact-number">50<span>+</span></div>
+    <div class="impact-label">Cities Reached</div>
+  </div>
+  <div class="impact-item">
+    <div class="impact-number">4<span>+</span></div>
+    <div class="impact-label">Years of Impact</div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="section-tag">Who We Are</div>
+  <div class="section-title">A Foundation Built on<br>Belief in Every Student</div>
+  <div class="about-grid">
+    <div class="about-visual">
+      <div class="about-visual-title">Our Mission</div>
+      <p>To ensure no student is held back by lack of opportunity, guidance, or resources. We believe every young mind deserves a fair chance to fly.</p>
+    </div>
+    <div>
+      <p class="section-sub">NayePankh Foundation works at the grassroots level, connecting students with mentors, internships, and skill-building programs that open real doors.</p>
+      <div class="about-points">
+        <div class="about-point">
+          <div class="about-point-icon">📚</div>
+          <div class="about-point-text">
+            <h4>Education Support</h4>
+            <p>Free study materials, doubt sessions and career counselling for underprivileged students.</p>
+          </div>
+        </div>
+        <div class="about-point">
+          <div class="about-point-icon">💻</div>
+          <div class="about-point-text">
+            <h4>Internship Programs</h4>
+            <p>Real-world internships that help students gain skills and confidence before graduation.</p>
+          </div>
+        </div>
+        <div class="about-point">
+          <div class="about-point-icon">🤝</div>
+          <div class="about-point-text">
+            <h4>Volunteer Network</h4>
+            <p>A community of 1200+ volunteers who give their time to make a lasting difference.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROGRAMS -->
+<section class="programs" id="programs">
+  <div class="section-tag">What We Do</div>
+  <div class="section-title">Programs That Create Change</div>
+  <div class="programs-grid">
+    <div class="program-card">
+      <div class="card-icon">🎓</div>
+      <h3>Education Initiative</h3>
+      <p>Providing free resources, tutoring, and career guidance to students in tier-2 and tier-3 cities across India.</p>
+      <a href="#" class="card-link">Learn more →</a>
+    </div>
+    <div class="program-card">
+      <div class="card-icon">🌱</div>
+      <h3>Awareness Campaigns</h3>
+      <p>Running digital and on-ground campaigns on mental health, women empowerment, and environmental responsibility.</p>
+      <a href="#" class="card-link">Learn more →</a>
+    </div>
+    <div class="program-card">
+      <div class="card-icon">💼</div>
+      <h3>Internship Gateway</h3>
+      <p>Structured internship tracks in tech, marketing, design and more — open to students at any skill level.</p>
+      <a href="#" class="card-link">Learn more →</a>
+    </div>
+    <div class="program-card">
+      <div class="card-icon">👩‍💻</div>
+      <h3>Skill Development</h3>
+      <p>Workshops and bootcamps covering coding, communication, design, and digital marketing skills.</p>
+      <a href="#" class="card-link">Learn more →</a>
+    </div>
+    <div class="program-card">
+      <div class="card-icon">🏆</div>
+      <h3>Mentorship Program</h3>
+      <p>One-on-one mentorship connecting students with industry professionals for guidance and growth.</p>
+      <a href="#" class="card-link">Learn more →</a>
+    </div>
+    <div class="program-card">
+      <div class="card-icon">💚</div>
+      <h3>Community Building</h3>
+      <p>Creating safe, inclusive spaces for students to network, collaborate and support each other.</p>
+      <a href="#" class="card-link">Learn more →</a>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials">
+  <div class="section-tag">Student Voices</div>
+  <div class="section-title">Lives We've Touched</div>
+  <div class="testimonials-grid">
+    <div class="tcard">
+      <p class="tcard-quote">"NayePankh gave me my first internship opportunity. I had no experience but they believed in me. Today I work at a startup I love."</p>
+      <div class="tcard-author">
+        <div class="tcard-avatar">P</div>
+        <div>
+          <div class="tcard-name">Priya Sharma</div>
+          <div class="tcard-role">Software Intern, Pune</div>
+        </div>
+      </div>
+    </div>
+    <div class="tcard">
+      <p class="tcard-quote">"The mentorship program changed how I think about my career. My mentor helped me get clarity and confidence I never had before."</p>
+      <div class="tcard-author">
+        <div class="tcard-avatar">R</div>
+        <div>
+          <div class="tcard-name">Rahul Verma</div>
+          <div class="tcard-role">Marketing Student, Nagpur</div>
+        </div>
+      </div>
+    </div>
+    <div class="tcard">
+      <p class="tcard-quote">"Volunteering here showed me how much impact one person can have. I've helped 30+ students this year and it's the best thing I've done."</p>
+      <div class="tcard-author">
+        <div class="tcard-avatar">A</div>
+        <div>
+          <div class="tcard-name">Anjali Desai</div>
+          <div class="tcard-role">Volunteer, Mumbai</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta" id="volunteer">
+  <div class="section-tag" style="color: var(--orange-light);">Join Us</div>
+  <div class="section-title">Ready to Make a Difference?</div>
+  <p class="section-sub">Whether you have 2 hours a week or want to lead a program — there's a place for you at NayePankh Foundation.</p>
+  <div class="cta-btns">
+    <a href="#" class="btn-primary">Become a Volunteer</a>
+    <a href="#" class="btn-outline">Donate to Our Cause</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="contact">
+  <div class="footer-grid">
+    <div>
+      <div class="footer-logo">Naye<span>Pankh</span> Foundation</div>
+      <p class="footer-desc">Giving wings to every dream, one student at a time. Join our growing community of changemakers across India.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Programs</a></li>
+        <li><a href="#">Volunteer</a></li>
+        <li><a href="#">Internships</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Get Involved</h4>
+      <ul>
+        <li><a href="#">Apply as Intern</a></li>
+        <li><a href="#">Become Mentor</a></li>
+        <li><a href="#">Donate</a></li>
+        <li><a href="#">Partner With Us</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="#">nayepankh.com</a></li>
+        <li><a href="#">info@nayepankh.com</a></li>
+        <li><a href="#">Instagram</a></li>
+        <li><a href="#">LinkedIn</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2024 NayePankh Foundation. All rights reserved.</span>
+    <span>Designed by Sharvari Thakur</span>
+  </div>
+</footer>
+
+</body>
+</html>
